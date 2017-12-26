@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper SYSTEM "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sdp.edu.mapper.Trade_markMapper">
+	<select id="select_trade_mark" resultType="com.sdp.edu.bean.T_MALL_TRADE_MARK">
+		<!-- select trade.ppmch,trade.Id,trade.url from t_mall_trade_mark trade 
+			left join t_mall_tm_class tmclass on tmclass.pp_id=trade.Id left join t_mall_class_1 
+			class1 on class1.Id=tmclass.flbh1 where class1.Id=${a} -->
+		select
+		trade.ppmch,trade.Id
+		from t_mall_trade_mark trade
+		left join t_mall_tm_class tmclass
+		on tmclass.pp_id=trade.Id
+		where tmclass.flbh1=#{a}
+	</select>
+</mapper>
+
